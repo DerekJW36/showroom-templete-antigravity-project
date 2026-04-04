@@ -1,0 +1,195 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400;1,400&family=Inter:wght@100..900&display=swap');
+
+@theme {
+    --color-obsidian: #000000;
+    --color-gold: #d4af37;
+    --color-bronze: #8b7355;
+    --color-ivory: #ffffff;
+    --color-glass: rgba(255, 255, 255, 0.05);
+    --color-glass-border: rgba(255, 255, 255, 0.1);
+
+    --font-display: 'Baskervville', serif;
+    --font-sans: 'Inter', sans-serif;
+
+    --transition-smooth: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-obsidian);
+    color: var(--color-ivory);
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    /* Increased for readability */
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+}
+
+.luxury-text-gradient {
+    background: linear-gradient(135deg, #fbf5e5 0%, #d4af37 50%, #8b7355 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.glass-morphism {
+    background: var(--color-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--color-glass-border);
+}
+
+.obsidian-gradient {
+    background: radial-gradient(circle at top center, #1a1a1a 0%, var(--color-obsidian) 100%);
+}
+
+/* E-commerce Optimization Styles */
+.top-banner {
+    background: var(--color-gold);
+    color: var(--color-obsidian);
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.search-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.search-container:focus-within {
+    border-color: var(--color-gold);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.search-input {
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.tab-button {
+    padding: 1rem 2rem;
+    color: rgba(255, 255, 255, 0.4);
+    border-bottom: 2px solid transparent;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+}
+
+.tab-button.active {
+    color: var(--color-gold);
+    border-bottom-color: var(--color-gold);
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: var(--font-sans);
+    transition: all 0.4s var(--transition-smooth);
+}
+
+.luxury-button {
+    padding: 1rem 2.5rem;
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+}
+
+.luxury-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--color-gold);
+    transition: all 0.4s var(--transition-smooth);
+    z-index: -1;
+}
+
+.luxury-button:hover {
+    color: var(--color-obsidian);
+}
+
+.luxury-button:hover::before {
+    left: 0;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-obsidian);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-bronze);
+    border-radius: 3px;
+}
+
+/* Antigravity 3D Utilities */
+.perspective-container {
+    perspective: 1500px;
+    transform-style: preserve-3d;
+}
+
+.isometric-card {
+    transform: rotateX(25deg) rotateY(-15deg) translateZ(0);
+    transition: all 0.8s var(--transition-smooth);
+    transform-style: preserve-3d;
+    box-shadow: -10px 10px 30px rgba(0,0,0,0.4);
+}
+
+.isometric-card:hover {
+    transform: rotateX(0deg) rotateY(0deg) translateZ(50px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 30px rgba(197, 160, 89, 0.15);
+}
+
+.floating-element {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
