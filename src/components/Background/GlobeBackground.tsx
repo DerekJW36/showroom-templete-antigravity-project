@@ -123,14 +123,13 @@ const GlobeBackground: React.FC = () => {
 
             // Recursively dispose geometry and materials to prevent WebGL memory leak
             scene.traverse((child) => {
-                const mesh = child as THREE.Mesh | THREE.Points;
-                if (mesh.isMesh || mesh.isPoints) {
-                    if (mesh.geometry) mesh.geometry.dispose();
-                    if (mesh.material) {
-                        if (Array.isArray(mesh.material)) {
-                            mesh.material.forEach((m) => m.dispose());
+                if (child instanceof THREE.Mesh || child instanceof THREE.Points) {
+                    if (child.geometry) child.geometry.dispose();
+                    if (child.material) {
+                        if (Array.isArray(child.material)) {
+                            child.material.forEach((m) => m.dispose());
                         } else {
-                            mesh.material.dispose();
+                            child.material.dispose();
                         }
                     }
                 }
